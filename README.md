@@ -1,3 +1,5 @@
+![build](https://github.com/shubhamraj2202/instagram-autoresponder/actions/workflows/ci-tests.yml/badge.svg)
+[![codecov](https://codecov.io/gh/shubhamraj2202/instagram-autoresponder/branch/main/graph/badge.svg?token=ciJFM9MV99)](https://codecov.io/gh/shubhamraj2202/instagram-autoresponder)
 # Instagram Direct Message Autoresponder
 
 This project allows you to automatically respond to direct messages (DMs) on Instagram based on predefined rules. It uses the `instagrapi` library to interact with Instagram's API.
