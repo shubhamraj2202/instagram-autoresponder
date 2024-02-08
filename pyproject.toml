@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "instagram-autoresponder"
+version = "0.0.1"
+description = "Automatically respond to Instagram direct messages based on predefined rules."
+authors = ["Shubham Raj <shubhamraj2202@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+instagrapi = "^0.2.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^23.1.0"
+isort = "*"
+pre-commit = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

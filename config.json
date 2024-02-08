@@ -1,0 +1,15 @@
+{
+    "username": "your_instagram_username",
+    "password": "your_instagram_password",
+    "rules": {
+        "hi|hello|hey": "Hi there! How are you doing?",
+        "how are you|how r u": "I'm doing well, thanks for asking! How about you?",
+        "default": "Sorry, I didn't understand that."
+    },
+    "settings": {
+        "auto_reply": true,
+        "check_interval_seconds": 60,
+        "keep_alive_minutes": 5,
+        "log_file": "instagram_bot_logs.txt"
+    }
+}
