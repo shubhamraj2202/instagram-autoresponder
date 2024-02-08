@@ -27,8 +27,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --local user.email "shubhamraj2202@github.com"
+          git config --local user.name "shubhamraj2202"
   
       - name: Bump version number
         run: |
