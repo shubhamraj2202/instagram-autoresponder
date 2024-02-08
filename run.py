@@ -1,6 +1,6 @@
 import argparse
 
-from instagram_autoresponder import main
+from instagram_autoresponder.instagram_autoresponder import main
 
 
 def execute():

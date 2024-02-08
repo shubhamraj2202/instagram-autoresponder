@@ -1,4 +1,4 @@
-![build](https://github.com/shubhamraj2202/instagram-autoresponder/actions/workflows/ci-tests.yml/badge.svg)
+![build](https://github.com/shubhamraj2202/instagram-autoresponder/actions/workflows/ci-test.yml/badge.svg)
 [![codecov](https://codecov.io/gh/shubhamraj2202/instagram-autoresponder/branch/main/graph/badge.svg?token=ciJFM9MV99)](https://codecov.io/gh/shubhamraj2202/instagram-autoresponder)
 # Instagram Direct Message Autoresponder
 
