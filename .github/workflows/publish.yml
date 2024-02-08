@@ -1,0 +1,74 @@
+name: Publish-PyPI-Distributions
+run-name: ${{ github.actor }} is publishing project to PyPI using GitHub Actions 🚀
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  pypi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+  
+      - name: Bump version number
+        run: |
+          poetry version prerelease
+          git add pyproject.toml
+          git commit -a -m "Bump version to $(poetry version | cut -d ' ' -f 2)" 
+
+      - name: Bump version to environment
+        run: |
+          poetry version $(echo $RELEASE_TYPE)
+          export RELEASE_VERSION=$(poetry version | cut -d' ' -f2)
+          echo "RELEASE_VERSION=$RELEASE_VERSION" >> $GITHUB_ENV
+        shell: bash
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+  
+      - name: Build package
+        run: poetry build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          repository_url: https://upload.pypi.org/legacy/
+          packages_dir: dist/
+          verify_metadata: true
+          skip_existing: true
+          verbose: true
+      
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.RELEASE_VERSION }}
+          body: 'Release v${{ env.RELEASE_VERSION }}'
+          draft: false
+          prerelease: true

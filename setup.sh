@@ -2,7 +2,7 @@
 
 # Install Poetry
 echo "Installing Poetry..."
-python3.11 -m pip install --user poetry
+python3.11 -m pip install poetry
 
 # Install Dependencies
 echo "Installing project dependencies..."

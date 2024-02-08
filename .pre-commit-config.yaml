@@ -1,34 +1,17 @@
-# pre-commit is framework for managing and maintaining multi-language pre-commit hooks.
+# pre-commit is a framework for managing and maintaining multi-language pre-commit hooks.
 
 repos:
-# General Pre-commits Hooks
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  # General Pre-commits Hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
-    -   id: end-of-file-fixer
-    -   id: check-yaml
-    -   id: debug-statements
-    -   id: requirements-txt-fixer
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: debug-statements
+      - id: requirements-txt-fixer
 
-
-
-# Auto formats the Python Code
--   repo: https://github.com/psf/black
+  # Auto format the Python code
+  - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
-    -   id: black
-
-# Sort Imports
--   repo: https://github.com/pycqa/isort
-    rev: 5.11.4
-    hooks:
-      - id: isort
-        name: isort (python)
-        args: ["-a from __future__ import annotations"]
-
-# Add Trailing commas
--   repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.4.0
-    hooks:
-    -   id: add-trailing-comma
-        args: [--py36-plus]
+      - id: black

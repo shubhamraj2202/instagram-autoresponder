@@ -1,4 +1,3 @@
-import argparse
 import json
 import re
 import time
@@ -177,15 +176,3 @@ def main(args):
             f"Waiting for {config.settings.check_interval_seconds} seconds before checking for new messages..."
         )
         time.sleep(config.settings.check_interval_seconds)
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Instagram Direct Message Autoresponder"
-    )
-    parser.add_argument("--config", type=str, help="Path to JSON configuration file")
-    args = parser.parse_args()
-    if args.config:
-        main(args)
-    else:
-        print("Please provide a path to the JSON configuration file.")
