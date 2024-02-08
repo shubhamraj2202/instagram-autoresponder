@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "instagram-autoresponder"
-version = "0.0.2a0"
+version = "0.0.2a1"
 license = "LICENSE"
 readme = "README.md"
 description = "Automatically respond to Instagram direct messages based on predefined rules."
