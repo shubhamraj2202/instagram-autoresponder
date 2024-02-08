@@ -4,9 +4,13 @@ run-name: ${{ github.actor }} is publishing project to PyPI using GitHub Actions
 on:
   push:
     branches: [ main ]
+
 jobs:
   pypi:
     runs-on: ubuntu-latest
+    permissions:                # Job-level permissions configuration starts here
+      contents: write           # 'write' access to repository contents
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,8 +31,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --local user.email "shubhamraj2202@github.com"
-          git config --local user.name "shubhamraj2202"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
   
       - name: Bump version number
         run: |
